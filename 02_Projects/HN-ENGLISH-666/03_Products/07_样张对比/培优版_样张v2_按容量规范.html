@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>培优版 · 样张 v2（按 GPT 容量规范重制）</title>
+<style>
+@page{size:A4;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+:root{
+  --ink:#000; --ink2:#111; --ink3:#2b2b2b;
+  --y:#ffe95c; --p:#ffc2d6; --b:#bcd9ff; --red:#c00000;
+  --kai:"KaiTi","STKaiti","楷体",serif;
+}
+body{font-family:"宋体",SimSun,serif;color:var(--ink);background:#fff}
+/* ── GPT 统一网格：上下边距 14mm / 标题 21mm / 页脚 8mm / 安全 10mm ⇒ 内容区 182×230mm ── */
+.sheet{position:relative;width:210mm;height:297mm;overflow:hidden;background:#fff;page-break-after:always}
+.sheet:last-of-type{page-break-after:auto}
+.hd{position:absolute;left:14mm;right:14mm;top:14mm;height:21mm;z-index:3}
+.hd .t{font-size:15pt;font-weight:800;font-family:"黑体",SimHei,sans-serif;line-height:1.2}
+.hd .t i{font-style:normal;font-weight:400;font-size:10pt;margin-left:3mm;font-family:"宋体",SimSun,serif;color:var(--ink3)}
+.hd .s{font-size:10pt;margin-top:1.4mm;color:var(--ink3)}
+.hd .p{position:absolute;right:0;top:0;font-size:10pt;font-weight:800;font-family:"Times New Roman",serif}
+.cb{position:absolute;left:14mm;right:14mm;top:35mm;height:230mm;z-index:2}
+.ft{position:absolute;left:14mm;right:14mm;bottom:14mm;height:8mm;font-size:9.5pt;color:var(--ink3);
+  border-top:.3mm solid #999;padding-top:1.6mm;font-family:var(--kai);color:var(--red)}
+
+.sw-y{background:var(--y);padding:0 .8mm}
+.sw-p{background:var(--p);padding:0 .8mm}
+.sw-b{background:var(--b);padding:0 .8mm}
+.note{font-family:var(--kai);color:var(--red)}
+
+/* ══ 样张1 · 深度词条 + 音节切分：2列×4行，卡片 88×54mm ══ */
+.grid2{display:grid;grid-template-columns:88mm 88mm;column-gap:6mm;row-gap:4mm}
+.dc{border:.4mm solid #000;padding:2.4mm 3mm;height:54mm;position:relative}
+.dc .w{font-family:"Times New Roman",serif;font-size:12.5pt;font-weight:800}
+.dc .syl{font-family:"Times New Roman",serif;font-size:12.5pt;letter-spacing:.2mm;margin-top:.4mm}
+.dc .syl b{font-weight:800;text-decoration:underline;text-underline-offset:1.1mm;background:var(--y);padding:0 .5mm}
+.dc .ipa{font-family:"Times New Roman",serif;font-size:9.5pt;color:var(--ink3);margin-top:.4mm}
+.dc .mn{font-size:10pt;margin-top:.3mm}
+.dc .cl{font-size:10pt;line-height:1.5;margin-top:1mm}
+.dc .cl em{font-style:normal;font-family:"Times New Roman",serif;font-weight:800;background:var(--b);padding:0 .7mm}
+.dc .cl i{font-style:normal;font-size:9.5pt;color:var(--ink2);margin-left:.8mm}
+.dc .e2{margin-top:.9mm;font-size:9.5pt;padding-left:2mm;border-left:.7mm solid var(--red);
+  font-family:var(--kai);color:var(--red);line-height:1.4}
+.dc .wr{position:absolute;left:3mm;right:3mm;bottom:2mm;border-top:.25mm dotted #777;
+  padding-top:.9mm;font-size:9.5pt;color:var(--ink3);font-family:"Times New Roman",serif}
+
+/* ══ 样张2 · 对比矩阵：2列×5行，卡片 88×40mm ══ */
+.mxgrid{display:grid;grid-template-columns:88mm 88mm;column-gap:6mm;row-gap:5mm}
+.mc{border:.4mm solid #000;height:42mm;padding:2.4mm 3mm;position:relative}
+.mc .h{font-family:"Times New Roman",serif;font-size:11.5pt;font-weight:800;background:var(--y);
+  display:inline-block;padding:0 1mm;margin-bottom:1.2mm}
+.mc .r{font-size:10pt;line-height:1.55}
+.mc .r em{font-style:normal;font-family:"Times New Roman",serif;font-weight:800;background:var(--b);padding:0 .6mm}
+.mc .r i{font-style:normal;color:var(--ink2);font-size:9.5pt;margin-left:.8mm}
+.mc .k{position:absolute;left:3mm;right:3mm;bottom:2.2mm;font-size:9.5pt;font-family:var(--kai);
+  color:var(--red);line-height:1.4}
+
+/* ══ 样张3 · 语境训练：2 示范 + 4 练习 + 2 迁移 + 速记 ══ */
+.zone{border:.4mm solid #000;padding:2.6mm 3mm;margin-bottom:3mm}
+.zone .zh{font-size:11pt;font-weight:800;font-family:"黑体",SimHei,sans-serif;margin-bottom:1.6mm}
+.zone .zh span{font-weight:400;font-size:9.5pt;margin-left:2.5mm;color:var(--ink3);font-family:"宋体",SimSun,serif}
+.demo,.var2{font-size:10pt;line-height:1.6;font-family:"Times New Roman",serif;margin-bottom:1.6mm}
+.demo:last-child,.var2:last-child{margin-bottom:0}
+.demo .tag,.var2 .tag{font-size:9.5pt;font-weight:800;font-family:"宋体",SimSun,serif;
+  background:var(--p);padding:0 .8mm;margin-right:1.2mm}
+.demo .why{font-size:9.5pt;color:var(--red);font-family:var(--kai)}
+.passage{font-size:10.5pt;line-height:1.9;font-family:"Times New Roman",serif}
+.passage u{text-decoration:none;border-bottom:.4mm solid #000;padding:0 5mm}
+.wbox{border:.35mm solid #000;padding:1.6mm 2.4mm;font-size:10.5pt;font-family:"Times New Roman",serif;
+  margin-top:1.6mm;line-height:1.6}
+.wbox b{background:var(--y);padding:0 1mm}
+.rules2{font-size:10pt;line-height:1.6}
+.rules2 b{background:var(--p);padding:0 .8mm}
+
+/* ══ 样张4 · 一眼纠正：2列×4行，卡片 88×52mm ══ */
+.fixgrid{display:grid;grid-template-columns:88mm 88mm;column-gap:6mm;row-gap:5mm}
+.fc{border:.4mm solid #000;height:54mm;padding:2.4mm 3mm}
+.fc .n{font-size:10pt;font-weight:800;font-family:"黑体",SimHei,sans-serif;margin-bottom:1.2mm}
+.fc .n span{background:var(--y);padding:0 1mm}
+.fc .wrong,.fc .right{font-size:10.5pt;font-family:"Times New Roman",serif;line-height:1.5}
+.fc .wrong s{color:var(--red)}
+.fc .lb{font-size:9.5pt;font-weight:800;font-family:"宋体",SimSun,serif;margin-right:1mm}
+.fc .rule{margin-top:1.4mm;font-size:10pt;background:var(--p);padding:.6mm 1mm;line-height:1.45}
+.fc .prac{margin-top:1.4mm;font-size:10pt;font-family:"Times New Roman",serif;
+  border-top:.25mm dashed #777;padding-top:1.2mm;line-height:1.45}
+.fc .prac b{font-family:"宋体",SimSun,serif;font-size:9.5pt}
+
+/* ══ 样张5 · 二级导图：4 一级分支 × 4 二级节点 ══ */
+.branchgrid{display:grid;grid-template-columns:88mm 88mm;column-gap:6mm;row-gap:7mm}
+.br{border:.4mm solid #000;height:87mm;padding:2.6mm 3mm;position:relative}
+.br .bt{font-size:11.5pt;font-weight:800;font-family:"黑体",SimHei,sans-serif;background:var(--b);
+  display:inline-block;padding:.3mm 1.2mm;margin-bottom:1.8mm}
+.br ul{list-style:none}
+.br li{font-size:10pt;line-height:1.5;padding-left:4.5mm;position:relative;margin-bottom:2.2mm}
+.br li::before{content:"·";position:absolute;left:1mm;font-weight:800}
+.br li em{font-style:normal;font-family:"Times New Roman",serif;font-weight:800}
+.br li i{font-style:normal;color:var(--ink2);font-size:9.5pt;margin-left:.8mm}
+.br li span.nu{display:block;font-size:9.5pt;color:var(--ink3);font-family:"宋体",SimSun,serif;margin-top:.3mm}
+.br .tip{margin-top:1.4mm;font-size:9.5pt;font-family:var(--kai);color:var(--red);
+  border-left:.7mm solid var(--red);padding-left:1.6mm;line-height:1.45}
+.mid{display:flex;align-items:center;justify-content:center;height:30mm;margin:7mm 0}
+.mid div{background:var(--y);border:.4mm solid #000;padding:2.6mm 8mm;font-size:15pt;font-weight:800;
+  font-family:"黑体",SimHei,sans-serif}
+</style>
+</head>
+<body>
+
+<!-- ══════════ 样张 1 · 深度词条 + 音节切分 ══════════ -->
+<section class="sheet">
+  <div class="hd">
+    <div class="t">样张 1 · 深度词条（含音节切分）<i>2 列 × 4 行 = 8 词 · 卡片 88×54mm</i></div>
+    <div class="s">切分用中点 <b>·</b>，主重音<b>加粗 + 下划线</b>（黑白打印也看得出）；彩色只做增强</div>
+    <div class="p">1 / 5</div>
+  </div>
+  <div class="cb">
+    <div class="grid2">
+      <div class="dc">
+        <div class="w">important</div>
+        <div class="syl">im·<b>por</b>·tant</div>
+        <div class="ipa">/ɪmˈpɔːr.tənt/</div>
+        <div class="mn">adj. 重要的</div>
+        <div class="cl"><em>be important to sb.</em><i>对某人重要</i><br>
+          <em>It is important to do</em><i>做……很重要</i></div>
+        <div class="e2">It 作形式主语，真正的主语是后面的不定式</div>
+        <div class="wr">默写：im·por·tant ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">beautiful</div>
+        <div class="syl"><b>beau</b>·ti·ful</div>
+        <div class="ipa">/ˈbjuː.t̬ə.fəl/</div>
+        <div class="mn">adj. 美丽的</div>
+        <div class="cl"><em>beautiful scenery</em><i>美丽的风景</i><br>
+          <em>how beautiful</em><i>多美啊（感叹句）</i></div>
+        <div class="e2">How + 形容词 构成感叹句，别写成 What beautiful</div>
+        <div class="wr">默写：beau·ti·ful ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">together</div>
+        <div class="syl">to·<b>geth</b>·er</div>
+        <div class="ipa">/təˈɡeð.ɚ/</div>
+        <div class="mn">adv. 一起</div>
+        <div class="cl"><em>work together</em><i>一起工作</i><br>
+          <em>together with</em><i>连同；和……一起</i></div>
+        <div class="e2">together with 连接主语时，谓语跟前面的主语走</div>
+        <div class="wr">默写：to·geth·er ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">different</div>
+        <div class="syl"><b>dif</b>·fer·ent</div>
+        <div class="ipa">/ˈdɪf.ɚ.ənt/</div>
+        <div class="mn">adj. 不同的</div>
+        <div class="cl"><em>be different from</em><i>与……不同</i><br>
+          <em>difference</em><i>n. 差别</i></div>
+        <div class="e2">搭配是 from，不是 with / than；名词是 difference</div>
+        <div class="wr">默写：dif·fer·ent ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">independent</div>
+        <div class="syl">in·de·<b>pen</b>·dent</div>
+        <div class="ipa">/ˌɪn.dɪˈpen.dənt/</div>
+        <div class="mn">adj. 独立的</div>
+        <div class="cl"><em>be independent of</em><i>不依赖……</i><br>
+          <em>independence</em><i>n. 独立</i></div>
+        <div class="e2">第一音节还有次重音（IPA 的 ˌ 已标），不必再加一种颜色</div>
+        <div class="wr">默写：in·de·pen·dent ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">information</div>
+        <div class="syl">in·for·<b>ma</b>·tion</div>
+        <div class="ipa">/ˌɪn.fɚˈmeɪ.ʃən/</div>
+        <div class="mn">n. 信息（不可数）</div>
+        <div class="cl"><em>a piece of information</em><i>一条信息</i><br>
+          <em>information about</em><i>关于……的信息</i></div>
+        <div class="e2">不可数名词：不能说 an information / informations</div>
+        <div class="wr">默写：in·for·ma·tion ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">difficult</div>
+        <div class="syl"><b>dif</b>·fi·cult</div>
+        <div class="ipa">/ˈdɪf.ɪ.kəlt/</div>
+        <div class="mn">adj. 困难的</div>
+        <div class="cl"><em>It is difficult to do</em><i>做……很难</i><br>
+          <em>have difficulty (in) doing</em><i>做某事有困难</i></div>
+        <div class="e2">形容词是 difficult，名词是 difficulty，别混用</div>
+        <div class="wr">默写：dif·fi·cult ____________</div>
+      </div>
+      <div class="dc">
+        <div class="w">exercise</div>
+        <div class="syl"><b>ex</b>·er·cise</div>
+        <div class="ipa">/ˈek.sɚ.saɪz/</div>
+        <div class="mn">n. 锻炼；练习　v. 锻炼</div>
+        <div class="cl"><em>take exercise</em><i>做运动</i><br>
+          <em>do exercises</em><i>做练习题</i></div>
+        <div class="e2">表「锻炼」不可数；表「练习题」可数，用 do exercises</div>
+        <div class="wr">默写：ex·er·cise ____________</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft">音节切分只用于长词（3 音节以上、易拼错）；make / take / get / look 这类单音节词不拆</div>
+</section>
+
+<!-- ══════════ 样张 2 · 对比矩阵 10 组 ══════════ -->
+<section class="sheet">
+  <div class="hd">
+    <div class="t">样张 2 · 对比矩阵<i>2 列 × 5 行 = 10 组 · 每组 88×40mm</i></div>
+    <div class="s">只为消混淆：每组 = 两个对比点 + 一句辨析 + 一个微型例句</div>
+    <div class="p">2 / 5</div>
+  </div>
+  <div class="cb">
+    <div class="mxgrid">
+      <div class="mc"><span class="h">borrow / lend / keep</span>
+        <div class="r"><em>borrow</em><i>借入 from sb.</i><br><em>lend</em><i>借出 to sb.</i></div>
+        <div class="k">borrow / lend 是瞬间动作，不能接「一段时间」→ 只能用 keep</div></div>
+
+      <div class="mc"><span class="h">stop doing / stop to do</span>
+        <div class="r"><em>stop doing</em><i>停止正在做</i><br><em>stop to do</em><i>停下来去做</i></div>
+        <div class="k">doing 指向「已经在做」，to do 指向「接下来要做」</div></div>
+
+      <div class="mc"><span class="h">say / speak / talk / tell</span>
+        <div class="r"><em>say</em><i>接内容</i>　<em>speak</em><i>接语言</i><br><em>talk</em><i>后加介词</i>　<em>tell</em><i>后接人</i></div>
+        <div class="k">四个词都能译「说」，考的是后面跟什么</div></div>
+
+      <div class="mc"><span class="h">arrive / reach / get to</span>
+        <div class="r"><em>arrive at/in</em><i>小地点用 at、大地点用 in</i><br><em>reach</em><i>及物，直接接宾语</i></div>
+        <div class="k">reach 后不加介词；get 后必须加 to（get home 除外）</div></div>
+
+      <div class="mc"><span class="h">make / do</span>
+        <div class="r"><em>make</em><i>制作出、使……变得</i><br><em>do</em><i>做（活动、作业）</i></div>
+        <div class="k">do one's homework / do the housework；make a decision / make progress</div></div>
+
+      <div class="mc"><span class="h">look / see / watch / read</span>
+        <div class="r"><em>look at</em><i>看（动作，加 at）</i><br><em>see</em><i>看见（结果）</i></div>
+        <div class="k">watch 用于动态（球赛、电视）；read 用于文字书籍</div></div>
+
+      <div class="mc"><span class="h">hear / listen to</span>
+        <div class="r"><em>hear</em><i>听见（结果，及物）</i><br><em>listen to</em><i>听（动作，加 to）</i></div>
+        <div class="k">hear from = 收到某人来信；hear of = 听说过</div></div>
+
+      <div class="mc"><span class="h">bring / take</span>
+        <div class="r"><em>bring</em><i>带来（朝说话人方向）</i><br><em>take</em><i>带走（离开说话人）</i></div>
+        <div class="k">方向相反：Bring it here. / Take it away.</div></div>
+
+      <div class="mc"><span class="h">because / because of</span>
+        <div class="r"><em>because</em><i>+ 句子</i><br><em>because of</em><i>+ 名词 / 短语</i></div>
+        <div class="k">because of the rain = because it rained</div></div>
+
+      <div class="mc"><span class="h">hard / hardly</span>
+        <div class="r"><em>hard</em><i>努力地；猛烈地（adv.）</i><br><em>hardly</em><i>几乎不（否定）</i></div>
+        <div class="k">hardly 不是 hard 的副词形式，意思完全变了</div></div>
+    </div>
+  </div>
+  <div class="ft">复杂组（如 spend / pay / cost / take）建议单独用 2 列 × 4 行 = 8 组、每组 51mm，不要为凑满 10 组把辨析压成一行</div>
+</section>
+
+<!-- ══════════ 样张 3 · 语境训练 2 + 4 + 2 ══════════ -->
+<section class="sheet">
+  <div class="hd">
+    <div class="t">样张 3 · 语境训练<i>2 道示范 + 4 空练习 + 2 道迁移 · 讲练分开</i></div>
+    <div class="s">答案不放在练习旁边，避免学生提前看到</div>
+    <div class="p">3 / 5</div>
+  </div>
+  <div class="cb">
+    <div class="zone" style="height:50mm"><div class="zh">① 先看示范<span>2 道已完成的例题，看清「词义线索」和「词形线索」</span></div>
+      <div class="demo"><span class="tag">示范 1</span>My father always tells me to be <b>careful</b> with money.
+        <span class="why">　词义线索：be ___ with → 固定搭配 be careful with</span></div>
+      <div class="demo"><span class="tag">示范 2</span>Last month I <b>spent</b> all my pocket money on a new game.
+        <span class="why">　词形线索：Last month → 过去时，spend 要变 spent</span></div>
+      <div class="demo" style="margin-top:2mm;padding-top:1.6mm;border-top:.25mm dashed #777">
+        <span class="tag" style="background:var(--b)">小结</span>示范两题分别示范了「靠固定搭配定词」和「靠时间状语定形」两条路子。</div>
+    </div>
+
+    <div class="zone" style="height:100mm"><div class="zh">② 自己练一段<span>先通读短文，再从词库选词填入；每空都要检查词形</span></div>
+      <div class="wbox"><b>make</b>　sure　money　<b>spend</b>　early　careful　interest</div>
+      <div class="passage" style="margin-top:2mm">
+        My father always tells me to be (1) <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> with my money.
+        He says I should (2) <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> sure that every coin is used well.
+        Last month I (3) <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> all my pocket money on a new game.
+        Dad didn't get angry with me. Instead, he asked me to (4) <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+        a plan for next month. Now I get up <b>early</b> every morning and write down what I buy.
+        Little by little, I find it much easier to control myself, and my parents are pleased with the change.
+      </div>
+      <div style="margin-top:2.6mm;border-top:.3mm dashed #777;padding-top:2mm">
+        <div style="font-size:10pt;font-weight:800;font-family:'黑体',SimHei,sans-serif;margin-bottom:1.6mm">答案书写区（先写答案，再对答案页）</div>
+        <div style="font-size:10.5pt;line-height:2.5;font-family:'Times New Roman',serif">
+          (1) ____________________　　(2) ____________________<br>
+          (3) ____________________　　(4) ____________________
+        </div>
+      </div>
+    </div>
+
+    <div class="zone" style="height:48mm"><div class="zh">③ 同考点再练<span>换个语境，验证是不是只记住了示范句</span></div>
+      <div class="var2"><span class="tag">迁移 1</span>It <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> me two hours to finish the work.
+        <span class="why">（提示：花费；it 作形式主语）</span></div>
+      <div class="var2"><span class="tag">迁移 2</span>The new bike <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> him 800 yuan.
+        <span class="why">（提示：花费；物作主语）</span></div>
+      <div style="margin-top:2mm;border-top:.3mm dashed #777;padding-top:2mm;font-size:10.5pt;line-height:2.4;font-family:'Times New Roman',serif">
+        迁移 1 答案：________________　　迁移 2 答案：________________
+      </div>
+    </div>
+
+    <div class="zone" style="height:20mm;margin-bottom:0"><div class="zh">④ 本页速记</div>
+      <div class="rules2">
+        <b>花费四兄弟</b>：人作主语用 spend / pay；物作主语用 cost；it 作形式主语用 take。<br>
+        <b>选词填空三步</b>：先选词（看句意）→ 再变形（看时态 / 词性 / 单复数）→ 最后通读验证。
+      </div>
+    </div>
+  </div>
+  <div class="ft">解析与答案集中在册子后面的答案区，练习页上不出现答案</div>
+</section>
+
+<!-- ══════════ 样张 4 · 一眼纠正 8 张 ══════════ -->
+<section class="sheet">
+  <div class="hd">
+    <div class="t">样张 4 · 一眼纠正<i>2 列 × 4 行 = 8 张 · 每张 88×52mm</i></div>
+    <div class="s">错的直接看，对的直接看，中间一句话说清原因 —— 不需要先学一套分类规则</div>
+    <div class="p">4 / 5</div>
+  </div>
+  <div class="cb">
+    <div class="fixgrid">
+      <div class="fc"><div class="n"><span>01</span> enjoy 的接格</div>
+        <div class="wrong"><span class="lb">✗ 错</span>She enjoys <s>to read</s> books.</div>
+        <div class="right"><span class="lb">✓ 对</span>She enjoys <b>reading</b> books.</div>
+        <div class="rule">直接记：enjoy + doing</div>
+        <div class="prac"><b>练：</b>I enjoy ______ (draw) pictures.</div></div>
+
+      <div class="fc"><div class="n"><span>02</span> look forward to 的 to</div>
+        <div class="wrong"><span class="lb">✗ 错</span>I'm looking forward to <s>see</s> you.</div>
+        <div class="right"><span class="lb">✓ 对</span>I'm looking forward to <b>seeing</b> you.</div>
+        <div class="rule">直接记：这里的 to 是介词，后面接 doing</div>
+        <div class="prac"><b>练：</b>I'm used to ______ (get) up early.</div></div>
+
+      <div class="fc"><div class="n"><span>03</span> 瞬间动词 + 一段时间</div>
+        <div class="wrong"><span class="lb">✗ 错</span>He has <s>borrowed</s> the book for two weeks.</div>
+        <div class="right"><span class="lb">✓ 对</span>He has <b>kept</b> the book for two weeks.</div>
+        <div class="rule">直接记：for + 时间段 → 必须换成延续性动词</div>
+        <div class="prac"><b>练：</b>I have ______ (have) this bike for three years.</div></div>
+
+      <div class="fc"><div class="n"><span>04</span> make sb. do 的被动</div>
+        <div class="wrong"><span class="lb">✗ 错</span>I was made <s>wait</s> for an hour.</div>
+        <div class="right"><span class="lb">✓ 对</span>I was made <b>to wait</b> for an hour.</div>
+        <div class="rule">直接记：主动省 to，被动还原 to</div>
+        <div class="prac"><b>练：</b>The boy was made ______ (clean) the room.</div></div>
+
+      <div class="fc"><div class="n"><span>05</span> 不可数名词</div>
+        <div class="wrong"><span class="lb">✗ 错</span>He gave me <s>an information</s>.</div>
+        <div class="right"><span class="lb">✓ 对</span>He gave me <b>a piece of information</b>.</div>
+        <div class="rule">直接记：information / news / advice 都不可数</div>
+        <div class="prac"><b>练：</b>Here is a piece of ______ (news) for you.</div></div>
+
+      <div class="fc"><div class="n"><span>06</span> 宾语从句语序</div>
+        <div class="wrong"><span class="lb">✗ 错</span>Do you know <s>where is he</s>?</div>
+        <div class="right"><span class="lb">✓ 对</span>Do you know <b>where he is</b>?</div>
+        <div class="rule">直接记：连接词 + 主语 + 谓语（陈述语序）</div>
+        <div class="prac"><b>练：</b>Could you tell me when ______ (the train / leave)?</div></div>
+
+      <div class="fc"><div class="n"><span>07</span> 主谓一致</div>
+        <div class="wrong"><span class="lb">✗ 错</span>One of the boys <s>are</s> from Hunan.</div>
+        <div class="right"><span class="lb">✓ 对</span>One of the boys <b>is</b> from Hunan.</div>
+        <div class="rule">直接记：one of + 复数名词，谓语跟 one 走（单数）</div>
+        <div class="prac"><b>练：</b>One of my friends ______ (like) swimming.</div></div>
+
+      <div class="fc"><div class="n"><span>08</span> 感叹句</div>
+        <div class="wrong"><span class="lb">✗ 错</span><s>What</s> beautiful the flowers are!</div>
+        <div class="right"><span class="lb">✓ 对</span><b>How</b> beautiful the flowers are!</div>
+        <div class="rule">直接记：How + 形容词；What + 名词短语</div>
+        <div class="prac"><b>练：</b>______ a clever boy he is!</div></div>
+    </div>
+  </div>
+  <div class="ft">每张卡固定四行：错误写法 → 正确写法 → 一句规则 → 立刻练一句；不再要求学生先判断「属于哪种错误」</div>
+</section>
+
+<!-- ══════════ 样张 5 · 二级导图 4×4 ══════════ -->
+<section class="sheet">
+  <div class="hd">
+    <div class="t">样张 5 · 二级知识导图<i>4 个一级分支 × 5 个二级节点 = 20 节点</i></div>
+    <div class="s">按固定网格排列，不做放射型大蜘蛛网 —— 不必为连线留出扇形空白</div>
+    <div class="p">5 / 5</div>
+  </div>
+  <div class="cb">
+    <div class="branchgrid">
+      <div class="br">
+        <div class="bt">① 只接 doing</div>
+        <ul>
+          <li><em>enjoy doing</em><i>喜欢做</i><span class="nu">enjoy oneself 玩得开心（oneself 不能换成 yourself 之外的）</span></li>
+          <li><em>finish doing</em><i>做完</i><span class="nu">finish with sth. 用完某物</span></li>
+          <li><em>avoid doing</em><i>避免做</i><span class="nu">后面也可接名词，但绝不能接 to do</span></li>
+          <li><em>mind doing</em><i>介意做</i><span class="nu">Would you mind doing…? 答 Not at all 才是不介意</span></li>
+          <li><em>be worth doing</em><i>值得做</i><span class="nu">be worth doing sth. 值得做某事，worth 后不接 to do</span></li>
+        </ul>
+      </div>
+      <div class="br">
+        <div class="bt">② 只接 to do</div>
+        <ul>
+          <li><em>decide to do</em><i>决定做</i><span class="nu">名词形式 decision：make a decision</span></li>
+          <li><em>plan to do</em><i>计划做</i><span class="nu">make a plan for… 为……制定计划</span></li>
+          <li><em>hope to do</em><i>希望做</i><span class="nu">没有 hope sb. to do 这种说法，别照 wish 套</span></li>
+          <li><em>refuse to do</em><i>拒绝做</i><span class="nu">refuse 后接 to do，不接 doing</span></li>
+          <li><em>would like to do</em><i>想要做</i><span class="nu">would like sb. to do 想要某人做</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mid"><div>动词后面接什么？</div></div>
+
+    <div class="branchgrid">
+      <div class="br">
+        <div class="bt">③ 两者都可，意思不同</div>
+        <ul>
+          <li><em>stop doing</em><i>停止正在做</i> / <em>stop to do</em><i>停下来去做</i><span class="nu">He stopped smoking. 戒烟 / He stopped to smoke. 停下来去抽</span></li>
+          <li><em>remember doing</em><i>记得做过</i> / <em>to do</em><i>记得要做</i><span class="nu">doing 指向已发生，to do 指向未发生</span></li>
+          <li><em>forget doing</em><i>忘了做过</i> / <em>to do</em><i>忘了要做</i><span class="nu">与 remember 同一套判断法则</span></li>
+          <li><em>try doing</em><i>试着做（换办法）</i> / <em>try to do</em><i>努力做</i><span class="nu">try one's best to do 尽最大努力做</span></li>
+          <li><em>go on doing</em><i>继续同一件事</i> / <em>go on to do</em><i>接着做另一件事</i><span class="nu">与 stop 同一套判断法则</span></li>
+        </ul>
+        <div class="tip">判断法则：doing 指向「已发生」，to do 指向「未发生」</div>
+      </div>
+      <div class="br">
+        <div class="bt">④ 动词 + 宾语 + 动词</div>
+        <ul>
+          <li><em>want sb. to do</em><i>想要某人做</i><span class="nu">want to do 想做（主语自己）</span></li>
+          <li><em>ask sb. to do</em><i>要求某人做</i><span class="nu">否定形式 ask sb. not to do</span></li>
+          <li><em>let sb. do</em><i>让某人做</i><span class="nu">let 后不加 to，也不用于被动</span></li>
+          <li><em>make sb. do</em><i>使某人做</i><span class="nu">被动要还原：be made to do</span></li>
+          <li><em>tell sb. to do</em><i>告诉某人做</i><span class="nu">否定形式 tell sb. not to do</span></li>
+        </ul>
+        <div class="tip">注意：主动语态 make sb. do 不加 to；被动才还原为 be made to do</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft">导图只负责「整理关系」，不负责讲完每个词的细节；需要细看时翻到样张 1 深度词条或样张 2 对比矩阵</div>
+</section>
+
+</body>
+</html>

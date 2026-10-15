@@ -1,0 +1,5 @@
+﻿# 运行产物
+*.log
+__pycache__/
+.DS_Store
+*.tmp
